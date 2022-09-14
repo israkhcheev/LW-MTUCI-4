@@ -2,7 +2,7 @@ package ru.mtuci.rakhcheev.first;
 
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.stream.Stream;
+import java.util.stream.IntStream;
 
 public class FirstTask {
 
@@ -105,9 +105,12 @@ public class FirstTask {
 
     private void eighth() {
         int[] intArray = {1, -10, 5, 6, 45, 23, 45, -34, 0, 32, 56, -1, 2, -2};
+        IntStream stream = Arrays.stream(intArray).filter(x -> x > 0);
         System.out.println("Максимальное значение - " + Arrays.stream(intArray).max().getAsInt() +
                 "\nСумма положительных чисел " + Arrays.stream(intArray).filter(x -> x > 0).sum() +
-                "\nСумма чётных отрицательных чисел " + Arrays.stream(intArray).filter(x -> x < 0 && x % 2 == 0).sum()
+                "\nСумма чётных отрицательных чисел " + Arrays.stream(intArray).filter(x -> x < 0 && x % 2 == 0).sum() +
+                "\nКоличество положительных элементов" + Arrays.stream(intArray).filter(x -> x > 0).count() +
+                "\nСреднее арифметическое отрицательных элементов" + stream.sum() / stream.count()
         );
     }
 
